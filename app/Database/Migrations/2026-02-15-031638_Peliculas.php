@@ -19,7 +19,7 @@ class Peliculas extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,                
             ],
-            'description' => [
+            'descripcion' => [
                 'type' => 'TEXT',
                 'null' => TRUE,                
             ],

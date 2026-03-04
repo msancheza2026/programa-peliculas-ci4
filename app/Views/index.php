@@ -7,17 +7,15 @@
 </head>
 <body>
 
-    <h1>Listado peliculas </h1>
+    <h1>Listado Peliculas </h1>
 
-        <p> <?php echo $nombreVariableVista ?></p>   
-        <p> <?php echo $nombreVariableVista2 ?></p>   
-        <p> <?= $nombreVariableVista3 ?></p>
-        
-        <ul>
-            <?php foreach ($miArray as $key => $value) : ?>
-                <li><?= $value ?></li>
+               
+        <div>
+            <?php foreach ($peliculas as $key => $p) : ?>
+                <h3><?= $p['titulo'] ?></h3>
+                <p><?= $p['descripcion'] ?></p>
             <?php endforeach ?>
-        </ul>
+        </div>
 
 </body>
 </html>
