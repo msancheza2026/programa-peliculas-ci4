@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,13 +10,41 @@
 
     <h1>Listado Peliculas </h1>
 
-               
-        <div>
+
+    <a href="/pelicula/new">Crear</a>
+    <table>
+        
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Titulo
+                </th>
+                <th>
+                    Descripcion
+                </th>
+                <th>
+                    opciones
+                </th>
+
+            </tr>
+        
             <?php foreach ($peliculas as $key => $p) : ?>
-                <h3><?= $p['titulo'] ?></h3>
-                <p><?= $p['descripcion'] ?></p>
+                <tr>
+                    <td><?= $p['id'] ?></td>
+                    <td><?= $p['titulo'] ?></td>
+                    <td><?= $p['descripcion'] ?></td>
+                    <td>
+                        <a href="/pelicula/show/<?= $p['id'] ?>">Show</a>
+                        <a href="/pelicula/edit/<?= $p['id'] ?>">Edit</a>
+                        <a href="/pelicula/remove/<?= $p['id'] ?>">Edit</a>
+                    </td>
+                </tr>
             <?php endforeach ?>
-        </div>
+        
+
+    </table>
 
 </body>
 </html>
