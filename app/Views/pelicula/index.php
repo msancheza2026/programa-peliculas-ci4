@@ -38,7 +38,11 @@
                     <td>
                         <a href="/pelicula/show/<?= $p['id'] ?>">Show</a>
                         <a href="/pelicula/edit/<?= $p['id'] ?>">Edit</a>
-                        <a href="/pelicula/remove/<?= $p['id'] ?>">Edit</a>
+
+                        <form action="/pelicula/delete/<?= $p['id'] ?>" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                      
                     </td>
                 </tr>
             <?php endforeach ?>

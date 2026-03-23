@@ -16,29 +16,71 @@ class Pelicula extends BaseController
         ]);
     }
 
-
     public function new()
     {
-        echo 'new';
+        echo view('pelicula/new', [
+            'pelicula' => [
+                'titulo' => '',
+                'descripcion' => '',
+
+            ]
+        ]);
     }
+
+    public function create()
+    {
+
+        $peliculaModel = new PeliculaModel();
+
+
+        $peliculaModel->insert([
+            'titulo' =>$this->request->getPost('titulo'),
+            'descripcion' =>$this->request->getPost('descripcion'),
+        ]);
+
+        echo 'creado';
+       
+    }
+
+    public function edit($id)
+    {
+
+        $peliculaModel = new PeliculaModel();
+
+        echo view('pelicula/edit',[
+            'pelicula' => $peliculaModel->find($id)
+        ]);
+    }
+
+      public function update($id)
+    {
+        $peliculaModel = new PeliculaModel();
+
+        $peliculaModel->update($id,[
+            'titulo' => $this->request->getPost('titulo'),
+            'descripcion' => $this->request->getPost('descripcion')
+        ]);
+
+        echo 'update';
+    }
+
+    public function delete($id)
+    {
+        $peliculaModel = new PeliculaModel();
+        $peliculaModel->delete($id);
+
+        echo "delete";
+    }
+
 
    
     public function index()
     {
         $peliculaModel = new PeliculaModel();
 
-        // Guardas el resultado
-        $peliculas = $peliculaModel->findAll();
-
-        // Lo envías a la vista
-        return view('index', [
-            'peliculas' => $peliculas,
-
-            // si quieres conservar tus otras variables, no estorban:
-            'nombreVariableVista'=> 'contenido',
-            'nombreVariableVista2'=> 'contenido 2',
-            'nombreVariableVista3'=> 5,
-            'miArray' => [1,2,3,4],
+        echo view('pelicula/index', [
+            'peliculas' => $peliculaModel->findAll(),
         ]);
+               
     }
 }
